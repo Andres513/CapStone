@@ -15,7 +15,7 @@ const [ password, setPassword ] = useState('')
 
 
 const handleSetToken=(newToken)=>{
-  setToken(newToken)
+    setToken(newToken)
 }
 const handleSetProducts=(newProducts)=>{
   setProducts(newProducts)
@@ -25,9 +25,10 @@ const handleSetProducts=(newProducts)=>{
     <>
     <Routes>
       <Route path="/login" element={<Login token={token} setToken={handleSetToken} email={email} setEmail={setEmail} password={password} setPassword={setPassword}/>}/>
-      <Route path="/" element={<FetchProducts token={token} products={products} setProducts={handleSetProducts}/>}/>
+      <Route path="/" element={<FetchProducts token={token} products={products} setProducts={setProducts}/>}/>
       <Route path="/products/:id" element={<SingleProduct token={token}/>}/>
-      <Route path="/category/:category" element={<ProductsByCategories products={products} setProduct={handleSetProducts}/>}/>
+      <Route path="/categories" element={<Categories />}/>
+      <Route path="/category/:category" element={<ProductsByCategories/>}/>
     </Routes>
     </>
   )

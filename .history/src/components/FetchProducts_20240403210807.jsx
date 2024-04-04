@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react"
 import { Link, useAsyncError } from "react-router-dom"
 import Login from "./Login"
-import Categories from "./Categories"
+import Filter from "./Filter"
 
-export default function FetchProducts({products, setProducts, token}){
+export default function FetchProducts({token}){
     const [ error, setError ] = useState(null)
+    const [ products, setProducts ] = useState([])
+    const [ categories, setCategories ] = useState([])
+    const [ price, setPrice ] = useState('')
     const [ searched, setSearched ] = useState('')
     
     useEffect(()=>{
@@ -13,7 +16,7 @@ export default function FetchProducts({products, setProducts, token}){
             const response = await fetch('https://fakestoreapi.com/products')
             const result = await response.json()
             setProducts(result)
-            console.log(result)
+
             } catch(error) {
                 setError(error.message)
             }
@@ -28,7 +31,12 @@ export default function FetchProducts({products, setProducts, token}){
 return (
         <>
         <h1>Products</h1>
-            <Categories products={products}/>
+        {/* <div className="category-buttons">
+            <button>Women's Clothing</button>
+            <button>Men's Clothing</button>
+            <button>Jewelry</button>
+            <button>Electronics</button>
+        </div> */}
             <label className="search-bar">Search for Product: 
                 <input type="text" value={searched} onChange={(e) => setSearched(e.target.value)}/>
             </label><br/>

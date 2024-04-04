@@ -3,8 +3,9 @@ import { Link, useAsyncError } from "react-router-dom"
 import Login from "./Login"
 import Categories from "./Categories"
 
-export default function FetchProducts({products, setProducts, token}){
+export default function FetchProducts({token}){
     const [ error, setError ] = useState(null)
+    const [ products, setProducts ] = useState([])
     const [ searched, setSearched ] = useState('')
     
     useEffect(()=>{
@@ -13,7 +14,7 @@ export default function FetchProducts({products, setProducts, token}){
             const response = await fetch('https://fakestoreapi.com/products')
             const result = await response.json()
             setProducts(result)
-            console.log(result)
+
             } catch(error) {
                 setError(error.message)
             }
@@ -28,7 +29,7 @@ export default function FetchProducts({products, setProducts, token}){
 return (
         <>
         <h1>Products</h1>
-            <Categories products={products}/>
+            <Link to="/categories" element={<Categories/>}>Categories</Link><br/>
             <label className="search-bar">Search for Product: 
                 <input type="text" value={searched} onChange={(e) => setSearched(e.target.value)}/>
             </label><br/>

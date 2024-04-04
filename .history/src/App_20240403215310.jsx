@@ -27,6 +27,7 @@ const handleSetProducts=(newProducts)=>{
       <Route path="/login" element={<Login token={token} setToken={handleSetToken} email={email} setEmail={setEmail} password={password} setPassword={setPassword}/>}/>
       <Route path="/" element={<FetchProducts token={token} products={products} setProducts={handleSetProducts}/>}/>
       <Route path="/products/:id" element={<SingleProduct token={token}/>}/>
+      <Route path="/categories" element={<Categories />}/>
       <Route path="/category/:category" element={<ProductsByCategories products={products} setProduct={handleSetProducts}/>}/>
     </Routes>
     </>

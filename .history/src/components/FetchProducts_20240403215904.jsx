@@ -13,7 +13,7 @@ export default function FetchProducts({products, setProducts, token}){
             const response = await fetch('https://fakestoreapi.com/products')
             const result = await response.json()
             setProducts(result)
-            console.log(result)
+
             } catch(error) {
                 setError(error.message)
             }
@@ -28,7 +28,7 @@ export default function FetchProducts({products, setProducts, token}){
 return (
         <>
         <h1>Products</h1>
-            <Categories products={products}/>
+            <Link to="/categories" element={<Categories products={products}/>}>Categories</Link><br/>
             <label className="search-bar">Search for Product: 
                 <input type="text" value={searched} onChange={(e) => setSearched(e.target.value)}/>
             </label><br/>

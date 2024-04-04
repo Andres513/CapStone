@@ -9,25 +9,21 @@ import ProductsByCategories from './components/ProductsByCategory'
 
 function App() {
 const [ token, setToken ] = useState(null)
-const [ products, setProducts ] = useState([])
 const [ email, setEmail ] = useState('')
 const [ password, setPassword ] = useState('')
 
 
-const handleSetToken=(newToken)=>{
-  setToken(newToken)
+const handleSetState=(newToken)=>{
+    setToken(newToken)
 }
-const handleSetProducts=(newProducts)=>{
-  setProducts(newProducts)
-}
-
   return (
     <>
     <Routes>
-      <Route path="/login" element={<Login token={token} setToken={handleSetToken} email={email} setEmail={setEmail} password={password} setPassword={setPassword}/>}/>
-      <Route path="/" element={<FetchProducts token={token} products={products} setProducts={handleSetProducts}/>}/>
+      <Route path="/login" element={<Login token={token} setToken={handleSetState} email={email} setEmail={setEmail} password={password} setPassword={setPassword}/>}/>
+      <Route path="/" element={<FetchProducts token={token}/>}/>
       <Route path="/products/:id" element={<SingleProduct token={token}/>}/>
-      <Route path="/category/:category" element={<ProductsByCategories products={products} setProduct={handleSetProducts}/>}/>
+      <Route path="/categories" element={<Categories />}/>
+      <Route path="/category/:category" element={<ProductsByCategories/>}/>
     </Routes>
     </>
   )
