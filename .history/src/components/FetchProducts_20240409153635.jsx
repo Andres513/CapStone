@@ -5,10 +5,11 @@ import Categories from "./Categories"
 import Cart from "./Cart"
 import { useCart } from "./CartContext"
 
-export default function FetchProducts({products, setProducts, price, setPrice, token, setToken, isLoggedIn, setIsLoggedIn, handleLogout, loggedOut}){
+export default function FetchProducts({products, setProducts, price, setPrice, token, setToken, isLoggedIn, setIsLoggedIn, handleLogout}){
     const [ error, setError ] = useState(null)
     const [ searched, setSearched ] = useState('')
-    const [ addedToCart, setAddedToCart ] = useState(false);
+    const [addedToCart, setAddedToCart] = useState(false);
+    const [ logoutMessage, setLogoutMessage ] = useState("")
     const { cart, setCart } = useCart()
     
     useEffect(()=>{
@@ -37,7 +38,7 @@ return (
         <nav className="navbar">
                 {isLoggedIn ? (
                     <>
-                        <Link to="/logout"><button onClick={handleLogout}>Log out</button><br/></Link>
+                        <button onClick={handleLogout}>Log out</button><br/>
                         
                     </>
                 ) : (
@@ -45,7 +46,7 @@ return (
                 )}
                 <br/><Link to="/cart">View Cart</Link>
             </nav>
-            
+        
             <Categories products={products}/>
             <label className="search-bar">Search for Product: 
                 <input type="text" value={searched} onChange={(e) => setSearched(e.target.value)}/>

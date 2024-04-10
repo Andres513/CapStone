@@ -8,7 +8,7 @@ import { useCart } from "./CartContext"
 export default function FetchProducts({products, setProducts, price, setPrice, token, setToken, isLoggedIn, setIsLoggedIn, handleLogout, loggedOut}){
     const [ error, setError ] = useState(null)
     const [ searched, setSearched ] = useState('')
-    const [ addedToCart, setAddedToCart ] = useState(false);
+    const [addedToCart, setAddedToCart] = useState(false);
     const { cart, setCart } = useCart()
     
     useEffect(()=>{
@@ -37,8 +37,8 @@ return (
         <nav className="navbar">
                 {isLoggedIn ? (
                     <>
-                        <Link to="/logout"><button onClick={handleLogout}>Log out</button><br/></Link>
-                        
+                        <button onClick={handleLogout}>Log out</button><br/>
+                        {loggedOut && <h3>Logged Out</h3>}
                     </>
                 ) : (
                     <Link to="/login"><button>Log in</button></Link>

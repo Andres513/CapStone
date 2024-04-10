@@ -38,18 +38,15 @@ export default function Login({ token, setToken, setIsLoggedIn, isLoggedIn }){
         setError("Must log in with valid username and password!")
     }
 }
-const handleLogout=()=> {
-    setToken(null)
-    setIsLoggedIn(false)
-}
+
 
 console.log(isLoggedIn)
 return (
     <>
         {isLoggedIn ? (
                 <>
-                    <h1>{successMessage}</h1>
-                    <button onClick={() => handleLogout()}>Log Out</button><br/>
+                    <h1>You are logged in!</h1>
+                    <button onClick={() => setToken('') && setIsLoggedIn(false)}>Log Out</button><br/>
                 </>
             ) : (
                 <form className="login" onSubmit={loginUser}>

@@ -37,8 +37,8 @@ return (
         <nav className="navbar">
                 {isLoggedIn ? (
                     <>
-                        <Link to="/logout"><button onClick={handleLogout}>Log out</button><br/></Link>
-                        
+                        <button onClick={handleLogout}>Log out</button><br/>
+                        {loggedOut && <h3>Logged Out</h3>}
                     </>
                 ) : (
                     <Link to="/login"><button>Log in</button></Link>

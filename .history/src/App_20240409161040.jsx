@@ -7,7 +7,6 @@ import SingleProduct from './components/SingleProduct'
 import ProductsByCategories from './components/ProductsByCategory'
 import Cart from './components/Cart'
 import { CartProvider } from './components/CartContext'
-import LogOut from './components/LoggedOut'
 
 function App() {
 const [ token, setToken ] = useState(null)
@@ -31,7 +30,6 @@ const handleSetPrice=(newPrice)=>{
  const handleLogout = () =>{
   setToken(null)
   setIsLoggedIn(false)
-  setLoggedOut(true)
  }
   return (
     
@@ -43,7 +41,6 @@ const handleSetPrice=(newPrice)=>{
       <Route path="/products/:id" element={<SingleProduct token={token} isLoggedIn={isLoggedIn}/>}/>
       <Route path="/category/:category" element={<ProductsByCategories products={products} setProduct={handleSetProducts}/>}/>
       <Route path="/cart" element={<Cart isLoggedIn={isLoggedIn}/>}/>
-      <Route path="/logout" element={<LogOut/>}/>
     </Routes>
     </>
     </CartProvider>

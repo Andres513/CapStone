@@ -48,8 +48,8 @@ return (
     <>
         {isLoggedIn ? (
                 <>
-                    <h1>{successMessage}</h1>
-                    <button onClick={() => handleLogout()}>Log Out</button><br/>
+                    <h1>You are logged in!</h1>
+                    <button onClick={() => handleLogout}>Log Out</button><br/>
                 </>
             ) : (
                 <form className="login" onSubmit={loginUser}>

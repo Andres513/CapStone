@@ -48,7 +48,7 @@ return (
     <>
         {isLoggedIn ? (
                 <>
-                    <h1>{successMessage}</h1>
+                    <h1>You are logged in!</h1>
                     <button onClick={() => handleLogout()}>Log Out</button><br/>
                 </>
             ) : (

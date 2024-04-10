@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Logout({ handleLogout }) {
-    // const handleLogout = () => {
-    //     onLogout();
-    // };
-
+export default function Logout({ setIsLoggedIn, IsLoggedIn, setToken }) {
+    
+    const handleLogout=()=> {
+    setToken(null)
+    setIsLoggedIn(false)
+}
+console.log(IsLoggedIn)
     return (
         <div>
             <h2>Welcome!</h2>

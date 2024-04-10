@@ -5,10 +5,10 @@ import Categories from "./Categories"
 import Cart from "./Cart"
 import { useCart } from "./CartContext"
 
-export default function FetchProducts({products, setProducts, price, setPrice, token, setToken, isLoggedIn, setIsLoggedIn, handleLogout, loggedOut}){
+export default function FetchProducts({products, setProducts, price, setPrice, token, setToken, isLoggedIn, setIsLoggedIn, handleLogout}){
     const [ error, setError ] = useState(null)
     const [ searched, setSearched ] = useState('')
-    const [ addedToCart, setAddedToCart ] = useState(false);
+    const [addedToCart, setAddedToCart] = useState(false);
     const { cart, setCart } = useCart()
     
     useEffect(()=>{
@@ -34,28 +34,26 @@ export default function FetchProducts({products, setProducts, price, setPrice, t
 return (
         <>
         <h1>Fake Store</h1>
-        <nav className="navbar">
-                {isLoggedIn ? (
-                    <>
-                        <Link to="/logout"><button onClick={handleLogout}>Log out</button><br/></Link>
-                        
-                    </>
-                ) : (
-                    <Link to="/login"><button>Log in</button></Link>
-                )}
-                <br/><Link to="/cart">View Cart</Link>
-            </nav>
-            
+        <Link to="/cart">View Cart</Link>
             <Categories products={products}/>
             <label className="search-bar">Search for Product: 
                 <input type="text" value={searched} onChange={(e) => setSearched(e.target.value)}/>
             </label><br/>
-            
+            <nav>
+                {isLoggedIn ? (
+                    <>
+                        <button onClick={handleLogout}>Log out</button>
+                    </>
+                ) : (
+                    <Link to="/login"><button>Log in</button></Link>
+                )}
+            </nav>
         <div className="items-container">
     {searchedProduct.map((product) => (
                 <div key={product.id} className="item">
                     <h3>{product.title}</h3>
                     <img src={product.image} alt={product.title} /><br/>
+
                     
                     <Link to={`/products/${product.id}`}>View Details</Link>
                   
