@@ -20,7 +20,7 @@ export default function Cart({ isLoggedIn }) {
 
     const quantityUpdater = (itemId, quantity) => {
         setQuantities((prevQuantities) => ({
-            ...prevQuantities,[itemId]:quantity
+            ...prevQuantities,[item.Id]:quantity
         }))
     }
 
@@ -39,12 +39,6 @@ export default function Cart({ isLoggedIn }) {
                             {cart.map((item, index) => (
                                 <div key={index}>
                                     <p>{item.title} - ${item.price}</p>
-                                    <input
-                                        type="number"
-                                        min="1"
-                                        value={quantities[item.id]}
-                                        onChange={(e) => quantityUpdater(item.id, parseInt(e.target.value))}
-                                    />
                                     <button onClick={() => removeFromCart(index)}>Remove</button>
                                 </div>
                             ))}

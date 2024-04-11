@@ -8,7 +8,6 @@ import ProductsByCategories from './components/ProductsByCategory'
 import Cart from './components/Cart'
 import { CartProvider } from './components/CartContext'
 import LogOut from './components/LoggedOut'
-import Checkout from './components/Checkout'
 
 function App() {
   const [token, setToken] = useState(null)
@@ -45,7 +44,6 @@ function App() {
           <Route path="/category/:category" element={<ProductsByCategories products={products} setProduct={handleSetProducts} />} />
           <Route path="/cart" element={<Cart isLoggedIn={isLoggedIn} />} />
           <Route path="/logout" element={<LogOut />} />
-          <Route path="/checkout" element={<Checkout/>}/>
         </Routes>
       </>
     </CartProvider>

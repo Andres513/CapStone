@@ -5,12 +5,6 @@ import { useCart } from "./CartContext"
 
 export default function Cart({ isLoggedIn }) {
     const { cart, setCart } = useCart()
-    const [quantities, setQuantities] = useState(
-        cart.reduce((acc, item) => {
-            acc[item.id] = 1; 
-            return acc;
-        }, {})
-    );
 
     const removeFromCart = (index) => {
         const updatedCart = [...cart]
@@ -18,13 +12,7 @@ export default function Cart({ isLoggedIn }) {
         setCart(updatedCart)
     }
 
-    const quantityUpdater = (itemId, quantity) => {
-        setQuantities((prevQuantities) => ({
-            ...prevQuantities,[itemId]:quantity
-        }))
-    }
-
-    const totalPrice = cart.reduce((acc, item) => acc + item.price * quantities[item.id], 0)
+    const totalPrice = cart.reduce((acc, item) => acc + item.price, 0)
 
     const clearCart = () => {
         setCart([])
@@ -39,12 +27,6 @@ export default function Cart({ isLoggedIn }) {
                             {cart.map((item, index) => (
                                 <div key={index}>
                                     <p>{item.title} - ${item.price}</p>
-                                    <input
-                                        type="number"
-                                        min="1"
-                                        value={quantities[item.id]}
-                                        onChange={(e) => quantityUpdater(item.id, parseInt(e.target.value))}
-                                    />
                                     <button onClick={() => removeFromCart(index)}>Remove</button>
                                 </div>
                             ))}
