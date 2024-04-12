@@ -43,18 +43,18 @@ export default function Cart({ isLoggedIn }) {
                     {cart.length > 0 ? (
                         <>
                             {cart.map((item, index) => (
-                                <div className="checkout-item" key={index}>
-                                    <h2 className="item-title">{item.title} - ${item.price}</h2>
+                                <div key={index}>
+                                    <p>{item.title} - ${item.price}</p>
                                     <input type="number" min="1" value={quantities[item.id]} onChange={(e) =>
-                                        quantityUpdater(item.id, parseInt(e.target.value))} /><br/>
-                                    <button className="style-button" onClick={() => removeFromCart(index)}>Remove</button>
+                                        quantityUpdater(item.id, parseInt(e.target.value))} />
+                                    <button onClick={() => removeFromCart(index)}>Remove</button>
                                 </div>
                             ))}
-                            <form className="credit-card-form">
-                                <h2>Enter your credit card info:</h2>
+                            <form>
                                 <label>Credit Card:</label>
                                 <input id="ccn" type="tel" inputMode="numeric" pattern="[0-9\s]{13,19}" autoComplete="cc-number" maxLength="19"
-                                    placeholder='xxxx xxxx xxxx xxxx' required value={creditCard}
+                                    placeholder="xxxx xxxx xxxx xxxx" required
+                                    value={creditCard}
                                     onChange={handleCreditCard}/>
                             </form>
                             {creditCard.length === 19 && (

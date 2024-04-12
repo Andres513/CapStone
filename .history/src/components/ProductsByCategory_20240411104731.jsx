@@ -14,7 +14,7 @@ export default function ProductsByCategories({ products }) {
             <Link to="/">Back Home</Link>
             <div className="category-container">
                 {filteredProducts.map((product) => (
-                    <div key={product.id} className="category-item">
+                    <div key={product.id}>
                         <h3>{product.title}</h3>
                         <img src={product.image} alt={product.title} /><br />
                         <Link to={`/products/${product.id}`}>View Details</Link>

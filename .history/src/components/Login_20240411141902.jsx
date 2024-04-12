@@ -62,7 +62,7 @@ export default function Login({ token, setToken, setIsLoggedIn, isLoggedIn }) {
                         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required ref={passwordInputRef} />
                     </label><br />
                     </div>
-                    <button className="login-button">Log in</button><br />
+                    <button>Log in</button><br />
                     <p>username: johnd, password: m38rmF$</p>
                     {error && <h2>{error}</h2>}
                 </form>

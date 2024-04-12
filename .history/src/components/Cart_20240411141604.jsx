@@ -51,7 +51,6 @@ export default function Cart({ isLoggedIn }) {
                                 </div>
                             ))}
                             <form className="credit-card-form">
-                                <h2>Enter your credit card info:</h2>
                                 <label>Credit Card:</label>
                                 <input id="ccn" type="tel" inputMode="numeric" pattern="[0-9\s]{13,19}" autoComplete="cc-number" maxLength="19"
                                     placeholder='xxxx xxxx xxxx xxxx' required value={creditCard}

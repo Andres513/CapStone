@@ -8,12 +8,11 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 150px;
   border-bottom: 3px solid black;
 }
 input {
   background-color: white;
-  text-align: left
 }
 img {
   width: 70%;
@@ -61,7 +60,6 @@ button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
-  margin-top: 50px;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -75,76 +73,4 @@ button:hover {
 }
 .navbar {
   float: right
-}
-.login {
-  border: 3px solid black
-}
-.login-button {
-  margin-bottom: 40px
-}
-.login-entry{
-  margin-top: 150px;
-  margin-bottom: 30px;
-}
-.item-title {
-  margin-top: 50px;
-}
-.style-button {
-  margin-bottom: 30px;
-}
-.checkout-item {
-  border-bottom: 3px solid black;
-  border-left: 3px solid black;
-  border-right: 3px solid black;
-  background-color: aliceblue;
-}
-.credit-card-form {
-  margin-top: 80px;
-}
-
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2em;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-  .items-container, .category-container {
-    grid-gap: 10px;
-  }
-  .item, .category-item {
-    box-shadow: 3px 3px lightblue;
-  }
-  button {
-    margin-top: 10px;
-    padding: 0.4em 0.8em;
-    font-size: 0.8em;
-  }
-  .navbar {
-    float: none;
-    text-align: center;
-  }
-  .login {
-    border: 2px solid black;
-  }
-  .login-button {
-    margin-bottom: 10px;
-  }
-  .login-entry {
-    margin-top: 10px;
-    margin-bottom: 5px;
-  }
-  .item-title {
-    margin-top: 10px;
-  }
-  .style-button {
-    margin-bottom: 5px;
-  }
-  .checkout-item {
-    border-bottom: 2px solid black;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-  }
-  .credit-card-form {
-    margin-top: 10px;
-  }
 }
